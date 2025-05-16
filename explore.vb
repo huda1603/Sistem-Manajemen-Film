@@ -146,6 +146,8 @@ Public Class explore
         End While
         reader.Close()
         For Each card As card_item_min In filmdict
+            card.btnAntrian.Parent = card.PictureBox1
+            card.btnFavorit.Parent = card.PictureBox1
             card_minimizes.FlowLayoutPanel1.Controls.Add(card)
         Next
         FlowLayoutPanel1.Controls.Add(card_minimizes)
