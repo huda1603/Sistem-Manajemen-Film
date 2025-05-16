@@ -137,6 +137,10 @@ Public Class Panel_Admin_DaftarFilm
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        If String.IsNullOrEmpty(txtItem.Text) Then
+            MessageBox.Show("Mohon Pilih Film")
+            Return
+        End If
         judulLama = txtItem.Text
         Dim edit_admin As New Halaman_Edit_Admin()
         Dim indeks As Integer = DataGridView1.CurrentRow.Index
@@ -199,6 +203,10 @@ Public Class Panel_Admin_DaftarFilm
     End Sub
 
     Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
+        If String.IsNullOrEmpty(txtItem.Text) Then
+            MessageBox.Show("Mohon Pilih Film")
+            Return
+        End If
         Dim indeks As Integer = DataGridView1.CurrentRow.Index
         Dim lblJudul As String = DataGridView1.Rows(indeks).Cells(0).Value.ToString()
         Connect()
