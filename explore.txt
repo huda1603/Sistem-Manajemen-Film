@@ -1,6 +1,0 @@
-card-minimize-lbl:
-Trending shows
-Paling banyak ditonton
-Rating tertinggi
-All shows
-- BROWSE ALL SHOWS
