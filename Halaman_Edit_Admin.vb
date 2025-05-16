@@ -66,13 +66,21 @@ Public Class Halaman_Edit_Admin
             If Not (cbAdv.Checked Or cbHor.Checked Or cbAct.Checked Or cbCom.Checked Or cbSciFi.Checked Or cbDra.Checked Or cbThr.Checked Or cbMis.Checked Or cbRom.Checked Or cbMus.Checked) Then
                 Throw New FormatException("Mohon Pilih Salah Satu Atau Lebih Genre")
             End If
+            Dim pattern As String = "^[A-Za-z\s]+$"
+            Dim regex As New Regex(pattern)
+            If Not regex.IsMatch(txtJudul.Text) Then
+                Throw New FormatException("Film Harus Mengandung Huruf / Angka Tidak Boleh Ada Yang Mengandung Simbol")
+            End If
+            If PictureBox1.Image Is Nothing Then
+                Throw New FormatException("Mohon Masukkan Gambar Film")
+            End If
         Catch ex As FormatException
             MessageBox.Show(ex.Message)
             Return
         End Try
 
         If cekJudul() = True Then
-            MessageBox.Show("Alat Sudah Ada")
+            MessageBox.Show("Film Sudah Ada")
         Else
             Connect()
             Try
