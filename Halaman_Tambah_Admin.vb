@@ -67,9 +67,9 @@ Public Class Halaman_Tambah_Admin
             If Not (cbAdv.Checked Or cbHor.Checked Or cbAct.Checked Or cbCom.Checked Or cbSciFi.Checked Or cbDra.Checked Or cbThr.Checked Or cbMis.Checked Or cbRom.Checked Or cbMus.Checked) Then
                 Throw New FormatException("Mohon Pilih Salah Satu Atau Lebih Genre")
             End If
-            Dim pattern As String = "^[A-Za-z\s]+$"
-            Dim regex As New Regex(pattern)
-            If Not regex.IsMatch(txtJudul.Text) Then
+            Dim pattern2 As String = "[!@#$%^&*()_+={}|\/;<>?',.]"
+            Dim regex_2 As New Regex(pattern2)
+            If regex_2.IsMatch(txtJudul.Text) Then
                 Throw New FormatException("Film Harus Mengandung Huruf / Angka Tidak Boleh Ada Yang Mengandung Simbol")
             End If
             If PictureBox1.Image Is Nothing Then
